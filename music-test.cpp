@@ -26,8 +26,8 @@ void generateDummyData() {
     }
 }
 
-// Estimate covariance matrix
-MatrixXcd estimateCovarianceMatrix(const vector<vector<double>>& data) {
+// Estimate correlation matrix
+MatrixXcd estimateCorrelationMatrix(const vector<vector<double>>& data) {
     int num_samples = data[0].size();
     MatrixXcd R = MatrixXcd::Zero(num_microphones, num_microphones);
     
@@ -87,7 +87,7 @@ double findDOA(const MatrixXcd& noise_subspace) {
 int main() {
     generateDummyData();
 
-    MatrixXcd R = estimateCovarianceMatrix(mic_data);
+    MatrixXcd R = estimateCorrelationMatrix(mic_data);
     
     MatrixXcd noise_subspace;
     performEigenDecomposition(R, noise_subspace, num_sources);

@@ -7,12 +7,12 @@
 
 //Constants:
 #define SAMPLING_RATE 16000
-#define CHANNELS 2
+#define CHANNELS 1
 #define FRAMES_PER_PERIOD 64
 const snd_pcm_format_t FORMAT = SND_PCM_FORMAT_S16_BE;  //Formats reference: https://vovkos.github.io/doxyrest/samples/alsa/enum_snd_pcm_format_t.html 
 
 
-ALSACaptureDevice microphone("plughw:1,0,0", SAMPLING_RATE, CHANNELS, FRAMES_PER_PERIOD, FORMAT);   //Init fn for ALSA Input device 
+ALSACaptureDevice microphone("plughw:3,0,0", SAMPLING_RATE, CHANNELS, FRAMES_PER_PERIOD, FORMAT);   //Init fn for ALSA Input device 
 ALSAPlaybackDevice speaker("default", SAMPLING_RATE, CHANNELS, FRAMES_PER_PERIOD, FORMAT);          //Init fn for ALSA Output device
 
 
